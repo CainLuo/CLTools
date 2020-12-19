@@ -16,11 +16,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        textLabel.text = "Title".cc_localized()
-        imageView.image = UIImage.image("profile_header")
-        
-        ABC.hello()
+                
+//        textLabel.text = "Title".cc_localized()
+//        imageView.image = UIImage.image("profile_header")
+//
+//        ABC.hello()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let about = AboutViewController.configureWith()
+        present(about, animated: true, completion: nil)
     }
 }
 

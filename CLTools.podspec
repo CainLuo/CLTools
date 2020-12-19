@@ -31,8 +31,8 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'CLTools/Classes/**/*'
-#  s.swift_versions = ['5.0']
-  s.swift_version = '5.0'
+  s.swift_versions = ['5.0', '5.1', '5.2', '5.3']
+#  s.swift_version = '5.0'
   
    s.resource_bundles = {
      'CLTools' => ['CLTools/Assets/**/*']
@@ -40,6 +40,12 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-   s.dependency 'SwifterSwift'
-   s.dependency 'Localize-Swift'
+  s.dependency 'SwifterSwift'
+  s.dependency 'Localize-Swift'
+#   s.dependency 'PrivateXXXX'
 end
+
+# 前提是保证Pod组件库一定要在Example工程中百分百没问题运行之后才将podspec文件push到私有索引仓库
+# pod repo push PODSPECS_NAME XXXKit.podspec --skip-import-validation --allow-warnings
+
+

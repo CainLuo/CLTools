@@ -1,4 +1,4 @@
-source 'https://github.com/CocoaPods/Specs.git'
+#source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/CainLuo/CLPodSpec.git'
 
 use_frameworks!
@@ -6,6 +6,9 @@ platform :ios, '10.0'
 
 target 'CLTools_Example' do
   pod 'CLTools', :path => '../'
+  
+#  pod 'SwifterSwift'
+#  pod 'Localize-Swift'
   
   # Localize
 #  pod 'Localize-Swift' # https://github.com/marmelroy/Localize-Swift

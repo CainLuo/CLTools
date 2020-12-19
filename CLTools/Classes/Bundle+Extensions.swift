@@ -10,6 +10,29 @@ import UIKit
 import SwifterSwift
 import Localize_Swift
 
+enum MyStoryboard: String {
+    case About
+        
+    func instantiate<VC: UIViewController>(_ viewController: VC.Type) -> VC {
+        guard let vc = UIStoryboard(name: self.rawValue, bundle: Bundle(for: VC.self))
+            .instantiateViewController(withIdentifier: VC.storyboardIdentifier) as? VC else {
+            fatalError("Couldn't instantiate \(VC.storyboardIdentifier) from \(self.rawValue)")
+        }
+        
+        return vc
+    }
+}
+
+extension UIViewController {
+    static var defultNib: String {
+        return self.description().components(separatedBy: ".").dropFirst().joined(separator: ".")
+    }
+    
+    static var storyboardIdentifier: String {
+        return self.description().components(separatedBy: ".").dropFirst().joined(separator: ".")
+    }
+}
+
 extension Bundle {
     public static func current() -> Bundle? {
         guard let path = Bundle(for: CLTools.self).resourcePath?.appendingPathComponent("/CLTools.bundle") else { return nil }
